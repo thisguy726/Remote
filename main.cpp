@@ -211,7 +211,7 @@ int ReceiveServer(SOCKET sktConn, INPUT& data) {
 		}
 	}
 	else {
-		std::cout << "recv failed with error: " << WSAGetLastError() << std::endl;
+		std::cout << "Receive failed with error: " << WSAGetLastError() << std::endl;
 		delete buff;
 		return 1;
 	}
@@ -899,7 +899,7 @@ std::string VKeyToString(unsigned int vk)
 	case VK_NUMPAD9: return "NUMPAD 9";
 	case VK_MULTIPLY: return "MULTIPLY";
 	case VK_ADD: return "ADD";
-	case VK_SEPARATOR: return "SPERATOR";
+	case VK_SEPARATOR: return "SEPARATOR";
 	case VK_SUBTRACT: return "SUBTRACT";
 	case VK_DECIMAL: return "DECIMAL";
 	case VK_DIVIDE: return "DIVIDE";
@@ -928,7 +928,7 @@ std::string VKeyToString(unsigned int vk)
 	case VK_F23: return "F23";
 	case VK_F24: return "F24";
 	case VK_NUMLOCK: return "NUM LOCK";
-	case VK_SCROLL: return "SCROLL";
+	case VK_SCROLL: return "SCROLL LOCK";
 	case 0x92: return "OEM KEY 1";
 	case 0x93: return "OEM KEY 2";
 	case 0x94: return "OEM KEY 3";
@@ -1471,7 +1471,7 @@ int MainWindow::ReceiveThread()
 		else
 		{
 			Client.isConnected = false;
-			Log("No input to receive, diconnecting");
+			Log("No input received, disconnecting");
 			PostMessage(m_hwnd, WM_COMMAND, MAKEWPARAM(BTN_DISCONNECT, BN_CLICKED), 0);
 		}
 	}
